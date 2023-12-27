@@ -1,0 +1,13 @@
+Notes for myself:
+
+# Build package:
+1. Change version information in pyprojet.toml
+2. Change version information in __init__.py
+3. $ python -m build
+
+
+# Publish to TestPyPi
+$ twine upload -r testpypi dist/*
+
+# Public to PyPi
+$ twine upload dist/*
