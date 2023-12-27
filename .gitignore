@@ -1,0 +1,7 @@
+/venv/
+/tests/
+/.idea/
+/dist/
+/hargassner.egg-info/
+/hargassner/__pycache__/
+/auth.dat

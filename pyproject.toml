@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hargassner"
+version = "1.0.0"
+authors = [
+  { name="Markus Cserna", email="oss@cserna.at" },
+]
+description = "Query Hargassner equipment information through their Web API"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+keywords = [ "hargassner" ]
+dependencies = [
+    "requests",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/deawin/hargassner-api"
+Issues = "https://github.com/deawin/hargassner-api/issues"
