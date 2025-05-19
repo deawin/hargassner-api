@@ -3,11 +3,14 @@ Notes for myself:
 # Build package:
 1. Change version information in pyprojet.toml
 2. Change version information in __init__.py
+(once) $ python -m pip install build
 3. $ python -m build
 
 
 # Publish to TestPyPi
+(once) pip install twine
 $ twine upload -r testpypi dist/*
 
 # Public to PyPi
+(once) pip install twine
 $ twine upload dist/*
