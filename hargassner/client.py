@@ -94,4 +94,42 @@ class HargassnerAPI:
             if self.debug: print('widgets response: ')
             if self.debug: print(j)
 
+        # Check for presence of expected parameters and set defaults if not present
+        if 'data' not in j:
+            j['data'] = []
+
+        for widget in j['data']:
+            if 'widget' not in widget:
+                widget['widget'] = 'UNKNOWN'
+
+            if 'values' not in widget:
+                if widget['widget'] == 'EVENTS':
+                    widget['values'] = []
+                else:
+                    widget['values'] = {}
+
+            # Set default values for specific widget types
+            if widget['widget'] == 'HEATER' and isinstance(widget['values'], dict):
+                default_heater_values = {
+                    'name': 'Unknown',
+                    'state': 'Unknown',
+                    'smoke_temperature': 0,
+                    'heater_temperature_current': 0,
+                    'outdoor_temperature': 0
+                }
+                for key, default_value in default_heater_values.items():
+                    if key not in widget['values']:
+                        widget['values'][key] = default_value
+
+            elif widget['widget'] == 'BUFFER' and isinstance(widget['values'], dict):
+                default_buffer_values = {
+                    'buffer_charge': 0,
+                    'buffer_temperature_top': 0,
+                    'buffer_temperature_center': 0,
+                    'buffer_temperature_bottom': 0
+                }
+                for key, default_value in default_buffer_values.items():
+                    if key not in widget['values']:
+                        widget['values'][key] = default_value
+
         return j
